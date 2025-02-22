@@ -4,7 +4,7 @@ import apiClient from "../services/api-client";
 import { Game } from "./useGames";
 import { T } from "framer-motion/dist/types.d-6pKw1mTI";
 
-export interface FethResponse<T>{
+export interface FetchResponse<T>{
     count: number;
     results: T[];
 
@@ -18,7 +18,7 @@ const UseData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
             useEffect(() => {
                 const controller = new AbortController();
                 setLoading(true);
-                apiClient.get<FethResponse<T>>(endpoint, { signal: controller.signal, ...requestConfig})
+                apiClient.get<FetchResponse<T>>(endpoint, { signal: controller.signal, ...requestConfig})
                 .then((res) => {
                     setData(res.data.results);
                     setLoading(false);
