@@ -4,7 +4,7 @@ import apiClient from "../services/api-client";
 import { Game } from "./useGames";
 import { T } from "framer-motion/dist/types.d-6pKw1mTI";
 
-interface FethResponse<T>{
+export interface FethResponse<T>{
     count: number;
     results: T[];
 
